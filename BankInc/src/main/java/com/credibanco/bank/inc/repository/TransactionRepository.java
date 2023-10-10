@@ -3,9 +3,9 @@ package com.credibanco.bank.inc.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.credibanco.bank.inc.repository.entity.Card;
+import com.credibanco.bank.inc.repository.entity.Transaction;
 
 @Repository
-public interface CardRepository extends CrudRepository<Card, String> {
+public interface TransactionRepository extends CrudRepository<Transaction, String> {
 
 }

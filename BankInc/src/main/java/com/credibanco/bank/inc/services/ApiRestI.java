@@ -1,23 +1,28 @@
 package com.credibanco.bank.inc.services;
 
+import com.credibanco.bank.inc.model.CardRequest;
+import com.credibanco.bank.inc.model.CardResponse;
+import com.credibanco.bank.inc.repository.entity.Card;
+import com.credibanco.bank.inc.repository.entity.Transaction;
+
 /**
  * @author Jefferson Alexander Moreno Barrera {@code public interface ApiRestI}
  */
 public interface ApiRestI {
 
-	String getNumberCard(int productId);
+	CardResponse generateCardNumber(int productId);
 
-	String postEnroll();
+	Card activateCard(String cardId);
 
-	String deleteCard();
+	Card blockCard(long cardId);
 
-	String postBalance();
+	Card rechargeBalance(CardRequest body);
 
-	String getBalanceCard();
+	CardResponse balanceInquiry(long cardId);
 
-	String postPurchase();
+	Transaction purchaseTransaction(CardRequest body);
 
-	String getTransactionId();
+	Transaction consultTransaction(int transactionId);
 
-	String postAnulation();
+	Transaction transactionCancelled(CardRequest body);
 }

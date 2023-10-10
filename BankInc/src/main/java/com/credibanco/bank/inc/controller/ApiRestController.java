@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.credibanco.bank.inc.model.CardRequest;
+import com.credibanco.bank.inc.model.CardResponse;
+import com.credibanco.bank.inc.repository.entity.Card;
+import com.credibanco.bank.inc.repository.entity.Transaction;
 import com.credibanco.bank.inc.services.ApiRestImplement;
 
 /**
@@ -25,43 +30,43 @@ public class ApiRestController {
 	ApiRestImplement apiRestImplement;
 
 	@GetMapping("card/{productId}/number")
-	public ResponseEntity<String> getNumberCard(@PathVariable("productId") int productId) {
-		return new ResponseEntity<>(apiRestImplement.getNumberCard(productId), HttpStatus.OK);
+	public ResponseEntity<CardResponse> generateCardNumber(@PathVariable("productId") int productId) {
+		return new ResponseEntity<>(apiRestImplement.generateCardNumber(productId), HttpStatus.OK);
 	}
 
 	@PostMapping("card/enroll")
-	public ResponseEntity<String> postEnroll() {
-		return new ResponseEntity<>(apiRestImplement.postEnroll(), HttpStatus.OK);
+	public ResponseEntity<Card> activateCard(@RequestBody CardRequest body) {
+		return new ResponseEntity<>(apiRestImplement.activateCard(body.getCardId()), HttpStatus.OK);
 	}
 
 	@DeleteMapping("card/{cardId}")
-	public ResponseEntity<String> deleteCard() {
-		return new ResponseEntity<>(apiRestImplement.deleteCard(), HttpStatus.OK);
+	public ResponseEntity<Card> blockCard(@PathVariable("cardId") long cardId) {
+		return new ResponseEntity<>(apiRestImplement.blockCard(cardId), HttpStatus.OK);
 	}
 
 	@PostMapping("card/balance")
-	public ResponseEntity<String> postBalance() {
-		return new ResponseEntity<>(apiRestImplement.postBalance(), HttpStatus.OK);
+	public ResponseEntity<Card> rechargeBalance(@RequestBody CardRequest body) {
+		return new ResponseEntity<>(apiRestImplement.rechargeBalance(body), HttpStatus.OK);
 	}
 
 	@GetMapping("card/balance/{cardId}")
-	public ResponseEntity<String> getBalanceCard() {
-		return new ResponseEntity<>(apiRestImplement.getBalanceCard(), HttpStatus.OK);
+	public ResponseEntity<CardResponse> balanceInquiry(@PathVariable("cardId") long cardId) {
+		return new ResponseEntity<>(apiRestImplement.balanceInquiry(cardId), HttpStatus.OK);
 	}
 
 	@PostMapping("transaction/purchase")
-	public ResponseEntity<String> postPurchase() {
-		return new ResponseEntity<>(apiRestImplement.postPurchase(), HttpStatus.OK);
+	public ResponseEntity<Transaction> purchaseTransaction(@RequestBody CardRequest body) {
+		return new ResponseEntity<>(apiRestImplement.purchaseTransaction(body), HttpStatus.OK);
 	}
 
 	@GetMapping("transaction/{transactionId}")
-	public ResponseEntity<String> getTransactionId() {
-		return new ResponseEntity<>(apiRestImplement.getTransactionId(), HttpStatus.OK);
+	public ResponseEntity<Transaction> consultTransaction(@PathVariable("transactionId") int transactionId) {
+		return new ResponseEntity<>(apiRestImplement.consultTransaction(transactionId), HttpStatus.OK);
 	}
 
 	@PostMapping("transaction/anulation")
-	public ResponseEntity<String> postAnulation() {
-		return new ResponseEntity<>(apiRestImplement.postAnulation(), HttpStatus.OK);
+	public ResponseEntity<Transaction> transactionCancelled(@RequestBody CardRequest body) {
+		return new ResponseEntity<>(apiRestImplement.transactionCancelled(body), HttpStatus.OK);
 	}
 
 }

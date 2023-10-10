@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS Estados;
 CREATE TABLE Estados (
-idEstado IDENTITY PRIMARY KEY, 
+idEstado INT auto_increment PRIMARY KEY,
 descripcion varchar(50) NOT NULL,
 funcion varchar(15) NOT NULL,
 PRIMARY KEY (idEstado)
@@ -8,14 +8,14 @@ PRIMARY KEY (idEstado)
 
 DROP TABLE IF EXISTS Ciudades;
 CREATE TABLE Ciudades (
-idCiudad IDENTITY NOT NULL PRIMARY KEY,
+idCiudad INT auto_increment PRIMARY KEY,
 nombre varchar(50) NOT NULL,
 PRIMARY KEY (idCiudad)
 );
 
 DROP TABLE IF EXISTS Productos;
 CREATE TABLE Productos (
-idProducto IDENTITY NOT NULL PRIMARY KEY,
+idProducto INT auto_increment PRIMARY KEY,
 numeroProducto varchar(6) NOT NULL, 
 descripcion varchar(50) NOT NULL,
 PRIMARY KEY (idProducto)
@@ -23,7 +23,7 @@ PRIMARY KEY (idProducto)
 
 DROP TABLE IF EXISTS Clientes;
 CREATE TABLE Clientes (
-idCliente IDENTITY NOT NULL PRIMARY KEY,
+idCliente INT auto_increment PRIMARY KEY,
 nombres VARCHAR(100) NOT NULL,
 apellidos VARCHAR(100) NOT NULL,
 tipoDocumento VARCHAR(2) NOT NULL,
@@ -49,7 +49,7 @@ CONSTRAINT fkEstadoTarjeta FOREIGN KEY (estadoID)   REFERENCES Estados (idEstado
 
 DROP TABLE IF EXISTS Transacciones;
 CREATE TABLE Transacciones (  
-idTransaccion IDENTITY NOT NULL PRIMARY KEY, 
+idTransaccion INT auto_increment PRIMARY KEY,
 fechaMovimiento DATE NOT NULL,
 valor NUMERIC(20) NOT NULL,
 productoID INT DEFAULT NULL,
@@ -62,7 +62,7 @@ CONSTRAINT fkEstadoTransaccion FOREIGN KEY (estadoID)   REFERENCES Estados (idEs
 
 DROP TABLE IF EXISTS Recargas;
 CREATE TABLE Recargas (  
-idTransaccion IDENTITY NOT NULL PRIMARY KEY, 
+idRecarga INT auto_increment PRIMARY KEY,
 fechaRecarga DATE NOT NULL,
 valor NUMERIC(20) NOT NULL,
 tarjetaID NUMERIC(16) DEFAULT NULL,
