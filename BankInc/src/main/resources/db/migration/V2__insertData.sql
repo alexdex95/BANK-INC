@@ -8,8 +8,8 @@ INSERT INTO Ciudades (nombre) VALUES('Cali');
 INSERT INTO Ciudades (nombre) VALUES('Medellin');
 INSERT INTO Ciudades (nombre) VALUES('Cartagena');
 
-INSERT INTO Productos (idProducto,descripcion) VALUES(000001,'Debito');
-INSERT INTO Productos (idProducto,descripcion) VALUES(000002,'Credito');
+INSERT INTO Productos (numeroProducto,descripcion) VALUES('000001','Debito');
+INSERT INTO Productos (numeroProducto,descripcion) VALUES('000002','Credito');
 
 INSERT INTO Clientes (nombres,apellidos,tipoDocumento,numeroDocumento,edad,ciudadId) VALUES('Jefferson Alexander','Moreno Barrera','CC',1018481186,27,1);
 

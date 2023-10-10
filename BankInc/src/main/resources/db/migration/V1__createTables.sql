@@ -15,7 +15,8 @@ PRIMARY KEY (idCiudad)
 
 DROP TABLE IF EXISTS Productos;
 CREATE TABLE Productos (
-idProducto INT PRIMARY KEY, 
+idProducto IDENTITY NOT NULL PRIMARY KEY,
+numeroProducto varchar(6) NOT NULL, 
 descripcion varchar(50) NOT NULL,
 PRIMARY KEY (idProducto)
 );

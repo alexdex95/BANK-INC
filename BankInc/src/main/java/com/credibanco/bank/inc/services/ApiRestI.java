@@ -5,7 +5,7 @@ package com.credibanco.bank.inc.services;
  */
 public interface ApiRestI {
 
-	String getNumberCard();
+	String getNumberCard(int productId);
 
 	String postEnroll();
 
