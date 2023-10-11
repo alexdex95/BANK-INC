@@ -24,15 +24,43 @@ Desarrollado Por: Jefferson Alexander Moreno Barrera
 * [JUnit] : Version 4.4
 * [Mockito] : Version ‎4.2.0
 
-## API Reference
-* 
-Get - Iterations - dataID
+## API REST
 
-|  Parameters  |    Type     | Description     |
-| -----        |     :---:   |     :---:       |
-|  iterations  | int         | Required. True  |
-|    dataID    | Integer     | Required. True  |
+1. Generar número de tarjeta
+Tipo de método: GET
+Recurso: /card/{productId}/number
 
+2. Crear Tarjeta
+Tipo de método: POST
+Recurso: /card/create
+
+3. Activar tarjeta
+Tipo de método: POST
+Recurso: /card/enroll
+
+4. Bloquear tarjeta
+Tipo de método: DELETE
+Recurso: /card/{cardId}
+
+5. Recargar saldo
+Tipo de método: POST
+Recurso: /card/balance
+
+6. Consulta de saldo
+Tipo de método: GET
+Recurso: /card/balance/{cardId}
+
+7. Transacción de compra
+Tipo de método: POST
+Recurso: /transaction/purchase
+
+8. Consultar transacción
+Tipo de método: GET
+Recurso: /transaction/{transactionId}
+
+9. Anular transacciones
+Tipo de método: POST
+Recurso: /transaction/anulation
 
 ### URL API REST
 
