@@ -3,6 +3,15 @@ Proyecto de Bank Inc para la asignación de tarjetas.
 ***********************************************************************************************************************************
 Desarrollado Por: Jefferson Alexander Moreno Barrera
 ***********************************************************************************************************************************
+## Instrucciones para ejecutar la aplicación
+
+1. Clonar el repositorio.
+2. Importar proyecto en IDE de preferencia.
+3. Ejecutar comando mvn clean install.
+4. Iniciar proyecto spring.
+5. Importar colección en postman.
+7. Ejecutar pruebas, tener en cuenta que en la API Crear Tarjeta se requiere el dato del numero de la tarjeta que se obtiene de la API Generar Numero de Tarjeta
+
 ## Tecnologias
 
 1.  Maven: Gestor de dependencias para el manejo del empaquetado e implementación de librerías externas
