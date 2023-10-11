@@ -1,9 +1,8 @@
 # BANK-INC
-proyecto de credibanco bank inc
-Desarrolado por: JEFFERSON ALEXANDER MORENO BARRERA
+Proyecto de Bank Inc para la asignación de tarjetas.
 ***********************************************************************************************************************************
-Repositorio con API rest para bar tender
-******************************
+Desarrollado Por: Jefferson Alexander Moreno Barrera
+***********************************************************************************************************************************
 ## Technologies
 
 1.  Maven: Gestor de dependencias para el manejo del empaquetado e implementación de librerías externas
@@ -12,13 +11,13 @@ Repositorio con API rest para bar tender
 4.  Eclipse: IDE de desarrollo
 5.  Google Cloud: Plataforma cloud para hostear la API
 6.  GIT: software de manejo de versiones de la API
-7.  Postaman: Plataforma para el diseño y pruebas de API
+7.  Postman: Plataforma para el diseño y pruebas de API
 8.  JUnit: Biblioteca para desarrollo de pruebas unitarias a la API
 9.  H2: Base de datos en memoria
 10. Flyway: dependencia para la migracion de base de datos H2
 
+## Versiones usadas en el proyecto:
 
-versiones usadas en el proyecto:
 * [Spring-Boot]: Version 3.0.3 
 * [H2] : Version 2.1.212 
 * [Flyway] : Version 9.0.0
@@ -26,7 +25,7 @@ versiones usadas en el proyecto:
 * [Mockito] : Version ‎4.2.0
 
 ## API Reference
-*
+* 
 Get - Iterations - dataID
 
 |  Parameters  |    Type     | Description     |
