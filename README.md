@@ -133,5 +133,9 @@ Recurso: /transaction/anulation
 }'
 ```
 
-## Authors
+## Colección Postman
+
+https://drive.google.com/drive/folders/1zu6FUQDnGCAwdAxSaPRgd1y967QL2B9r
+
+## Autor
 @alexdex95
