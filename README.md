@@ -86,12 +86,7 @@ Tipo de método: GET
 Recurso: /card/balance/{cardId}
 
 ```curl
-    curl --location 'http://localhost:8080/V1/API/card/balance' \
---header 'Content-Type: application/json' \
---data '{
- "cardId": "1000001514737897",
- "balance":"50000"
-}'
+    curl --location 'http://localhost:8080/V1/API/card/balance/1000001514737897'
 ```
 
 ## 7. Transacción de compra
