@@ -3,7 +3,7 @@ Proyecto de Bank Inc para la asignación de tarjetas.
 ***********************************************************************************************************************************
 Desarrollado Por: Jefferson Alexander Moreno Barrera
 ***********************************************************************************************************************************
-## Technologies
+## Tecnologias
 
 1.  Maven: Gestor de dependencias para el manejo del empaquetado e implementación de librerías externas
 2.  Spring Boot: Modulo de spring para el desarrollo de la API REST 
@@ -26,57 +26,108 @@ Desarrollado Por: Jefferson Alexander Moreno Barrera
 
 ## API REST
 
-1. Generar número de tarjeta
+## 1. Generar número de tarjeta
 Tipo de método: GET
 Recurso: /card/{productId}/number
 
-2. Crear Tarjeta
+```curl
+    curl --location 'http://localhost:8080/V1/API/card/1/number'
+```
+
+## 2. Crear Tarjeta
 Tipo de método: POST
 Recurso: /card/create
 
-3. Activar tarjeta
+```curl
+    curl --location 'http://localhost:8080/V1/API/card/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "cardId": "1000001514737897",
+    "firstName":"Jefferson Moreno"
+}'
+```
+
+## 3. Activar tarjeta
 Tipo de método: POST
 Recurso: /card/enroll
 
-4. Bloquear tarjeta
+```curl
+    curl --location 'http://localhost:8080/V1/API/card/enroll' \
+--header 'Content-Type: application/json' \
+--data '{
+ "cardId":"1000001616057078"
+}'
+```
+
+## 4. Bloquear tarjeta
 Tipo de método: DELETE
 Recurso: /card/{cardId}
 
-5. Recargar saldo
+```curl
+    curl --location --request DELETE 'http://localhost:8080/V1/API/card/1000001616057078'
+```
+
+
+## 5. Recargar saldo
 Tipo de método: POST
 Recurso: /card/balance
 
-6. Consulta de saldo
+```curl
+    curl --location 'http://localhost:8080/V1/API/card/balance' \
+--header 'Content-Type: application/json' \
+--data '{
+ "cardId": "1000001514737897",
+ "balance":"50000"
+}'
+```
+
+## 6. Consulta de saldo
 Tipo de método: GET
 Recurso: /card/balance/{cardId}
 
-7. Transacción de compra
+```curl
+    curl --location 'http://localhost:8080/V1/API/card/balance' \
+--header 'Content-Type: application/json' \
+--data '{
+ "cardId": "1000001514737897",
+ "balance":"50000"
+}'
+```
+
+## 7. Transacción de compra
 Tipo de método: POST
 Recurso: /transaction/purchase
 
-8. Consultar transacción
+```curl
+   curl --location 'http://localhost:8080/V1/API/transaction/purchase' \
+--header 'Content-Type: application/json' \
+--data '{
+ "cardId": "1000001514737897",
+ "price": 1000,
+ "currency":"USD"
+}'
+```
+
+## 8. Consultar transacción
 Tipo de método: GET
 Recurso: /transaction/{transactionId}
 
-9. Anular transacciones
+```curl
+    curl --location 'http://localhost:8080/V1/API/transaction/0'
+```
+
+## 9. Anular transacciones
 Tipo de método: POST
 Recurso: /transaction/anulation
 
-### URL API REST
-
-Metodo GET
-
-https://bartenderapi.uc.r.appspot.com/V1/API/get?iterations=3&dataID=5
-
 ```curl
-    curl --location 'https://bartenderapi.uc.r.appspot.com/V1/API/get?iterations=3&dataID=5'
+    curl --location 'http://localhost:8080/V1/API/transaction/anulation' \
+--header 'Content-Type: application/json' \
+--data '{
+ "cardId": "1000001514737897",
+ "transactionId": "0"
+}'
 ```
-
-Header
-
-Key = Content-Type 
-
-Value = application/json
 
 ## Authors
 @alexdex95
