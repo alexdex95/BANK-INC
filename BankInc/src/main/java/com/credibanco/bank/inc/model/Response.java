@@ -4,12 +4,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-public class CardResponse {
+public class Response {
 
-	@JsonProperty("cardId")
+	@JsonProperty("numberCard")
 	String numberCard;
+
 	@JsonProperty("balance")
 	long balance;
+
+	@JsonProperty("message")
+	String message;
 
 	public String getNumberCard() {
 		return numberCard;
@@ -25,6 +29,14 @@ public class CardResponse {
 
 	public void setBalance(long balance) {
 		this.balance = balance;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }

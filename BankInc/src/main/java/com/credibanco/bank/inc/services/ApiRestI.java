@@ -1,8 +1,7 @@
 package com.credibanco.bank.inc.services;
 
-import com.credibanco.bank.inc.model.CardRequest;
-import com.credibanco.bank.inc.model.CardResponse;
-import com.credibanco.bank.inc.repository.entity.Card;
+import com.credibanco.bank.inc.model.Request;
+import com.credibanco.bank.inc.model.Response;
 import com.credibanco.bank.inc.repository.entity.Transaction;
 
 /**
@@ -10,19 +9,21 @@ import com.credibanco.bank.inc.repository.entity.Transaction;
  */
 public interface ApiRestI {
 
-	CardResponse generateCardNumber(int productId);
+	Response createCard(Request body);
 
-	Card activateCard(String cardId);
+	Response generateCardNumber(int productId);
 
-	Card blockCard(long cardId);
+	Response activateCard(String cardId);
 
-	Card rechargeBalance(CardRequest body);
+	Response blockCard(long cardId);
 
-	CardResponse balanceInquiry(long cardId);
+	Response rechargeBalance(Request body);
 
-	Transaction purchaseTransaction(CardRequest body);
+	Response balanceInquiry(long cardId);
+
+	Response purchaseTransaction(Request body);
 
 	Transaction consultTransaction(int transactionId);
 
-	Transaction transactionCancelled(CardRequest body);
+	Response transactionCancelled(Request body);
 }

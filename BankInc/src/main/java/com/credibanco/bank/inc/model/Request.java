@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-public class CardRequest {
+public class Request {
 
 	@JsonProperty("cardId")
 	String cardId;
@@ -14,6 +14,26 @@ public class CardRequest {
 	long price;
 	@JsonProperty("transactionId")
 	int transactionId;
+	@JsonProperty("currency")
+	String currency;
+	@JsonProperty("firstName")
+	String firstName;
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
 
 	public String getCardId() {
 		return cardId;

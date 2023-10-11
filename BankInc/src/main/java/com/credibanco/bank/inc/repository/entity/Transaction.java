@@ -1,7 +1,6 @@
 package com.credibanco.bank.inc.repository.entity;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +16,7 @@ public class Transaction {
 	private int idTransaccion;
 
 	@Column(name = "FECHAMOVIMIENTO", nullable = false)
-	private LocalDate fechaMovimiento;
+	private LocalDateTime fechaMovimiento;
 
 	@Column(name = "VALOR", nullable = false)
 	private long valor;
@@ -31,7 +30,7 @@ public class Transaction {
 	@Column(name = "ESTADOID", nullable = false)
 	private int estadoID;
 
-	public double getIdTransaccion() {
+	public int getIdTransaccion() {
 		return idTransaccion;
 	}
 
@@ -39,11 +38,11 @@ public class Transaction {
 		this.idTransaccion = idTransaccion;
 	}
 
-	public LocalDate getFechaMovimiento() {
+	public LocalDateTime getFechaMovimiento() {
 		return fechaMovimiento;
 	}
 
-	public void setFechaMovimiento(LocalDate fechaMovimiento) {
+	public void setFechaMovimiento(LocalDateTime fechaMovimiento) {
 		this.fechaMovimiento = fechaMovimiento;
 	}
 

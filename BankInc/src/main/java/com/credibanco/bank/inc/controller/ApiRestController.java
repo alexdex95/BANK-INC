@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.credibanco.bank.inc.model.CardRequest;
-import com.credibanco.bank.inc.model.CardResponse;
-import com.credibanco.bank.inc.repository.entity.Card;
+import com.credibanco.bank.inc.model.Request;
+import com.credibanco.bank.inc.model.Response;
 import com.credibanco.bank.inc.repository.entity.Transaction;
 import com.credibanco.bank.inc.services.ApiRestImplement;
 
@@ -29,33 +28,38 @@ public class ApiRestController {
 	@Autowired
 	ApiRestImplement apiRestImplement;
 
+	@PostMapping("card/create")
+	public ResponseEntity<Response> createCard(@RequestBody Request body) {
+		return new ResponseEntity<>(apiRestImplement.createCard(body), HttpStatus.OK);
+	}
+
 	@GetMapping("card/{productId}/number")
-	public ResponseEntity<CardResponse> generateCardNumber(@PathVariable("productId") int productId) {
+	public ResponseEntity<Response> generateCardNumber(@PathVariable("productId") int productId) {
 		return new ResponseEntity<>(apiRestImplement.generateCardNumber(productId), HttpStatus.OK);
 	}
 
 	@PostMapping("card/enroll")
-	public ResponseEntity<Card> activateCard(@RequestBody CardRequest body) {
+	public ResponseEntity<Response> activateCard(@RequestBody Request body) {
 		return new ResponseEntity<>(apiRestImplement.activateCard(body.getCardId()), HttpStatus.OK);
 	}
 
 	@DeleteMapping("card/{cardId}")
-	public ResponseEntity<Card> blockCard(@PathVariable("cardId") long cardId) {
+	public ResponseEntity<Response> blockCard(@PathVariable("cardId") long cardId) {
 		return new ResponseEntity<>(apiRestImplement.blockCard(cardId), HttpStatus.OK);
 	}
 
 	@PostMapping("card/balance")
-	public ResponseEntity<Card> rechargeBalance(@RequestBody CardRequest body) {
+	public ResponseEntity<Response> rechargeBalance(@RequestBody Request body) {
 		return new ResponseEntity<>(apiRestImplement.rechargeBalance(body), HttpStatus.OK);
 	}
 
 	@GetMapping("card/balance/{cardId}")
-	public ResponseEntity<CardResponse> balanceInquiry(@PathVariable("cardId") long cardId) {
+	public ResponseEntity<Response> balanceInquiry(@PathVariable("cardId") long cardId) {
 		return new ResponseEntity<>(apiRestImplement.balanceInquiry(cardId), HttpStatus.OK);
 	}
 
 	@PostMapping("transaction/purchase")
-	public ResponseEntity<Transaction> purchaseTransaction(@RequestBody CardRequest body) {
+	public ResponseEntity<Response> purchaseTransaction(@RequestBody Request body) {
 		return new ResponseEntity<>(apiRestImplement.purchaseTransaction(body), HttpStatus.OK);
 	}
 
@@ -65,7 +69,7 @@ public class ApiRestController {
 	}
 
 	@PostMapping("transaction/anulation")
-	public ResponseEntity<Transaction> transactionCancelled(@RequestBody CardRequest body) {
+	public ResponseEntity<Response> transactionCancelled(@RequestBody Request body) {
 		return new ResponseEntity<>(apiRestImplement.transactionCancelled(body), HttpStatus.OK);
 	}
 

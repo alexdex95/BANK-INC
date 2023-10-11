@@ -1,6 +1,6 @@
 package com.credibanco.bank.inc.repository.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,20 +15,20 @@ public class Card {
 	@Column(name = "IDTARJETA", nullable = false)
 	private long idTarjeta;
 
+	@Column(name = "NOMBRETITULAR", nullable = false)
+	private String nombreTitular;
+
 	@Column(name = "FECHAVENCIMIENTO", nullable = false)
-	private LocalDate fechaVencimiento;
+	private LocalDateTime fechaVencimiento;
 
 	@Column(name = "FECHACREACION", nullable = false)
-	private LocalDate fechaCreacion;
+	private LocalDateTime fechaCreacion;
 
 	@Column(name = "SALDO", nullable = false)
 	private long saldo;
 
 	@Column(name = "PRODUCTOID", nullable = false)
 	private int productoID;
-
-	@Column(name = "CLIENTEID", nullable = false)
-	private int clienteID;
 
 	@Column(name = "ESTADOID", nullable = false)
 	private int estadoID;
@@ -41,19 +41,19 @@ public class Card {
 		this.idTarjeta = idTarjeta;
 	}
 
-	public LocalDate getFechaVencimiento() {
+	public LocalDateTime getFechaVencimiento() {
 		return fechaVencimiento;
 	}
 
-	public void setFechaVencimiento(LocalDate fechaVencimiento) {
+	public void setFechaVencimiento(LocalDateTime fechaVencimiento) {
 		this.fechaVencimiento = fechaVencimiento;
 	}
 
-	public LocalDate getFechaCreacion() {
+	public LocalDateTime getFechaCreacion() {
 		return fechaCreacion;
 	}
 
-	public void setFechaCreacion(LocalDate fechaCreacion) {
+	public void setFechaCreacion(LocalDateTime fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
 
@@ -73,20 +73,20 @@ public class Card {
 		this.productoID = productoID;
 	}
 
-	public int getClienteID() {
-		return clienteID;
-	}
-
-	public void setClienteID(int clienteID) {
-		this.clienteID = clienteID;
-	}
-
 	public int getEstadoID() {
 		return estadoID;
 	}
 
 	public void setEstadoID(int estadoID) {
 		this.estadoID = estadoID;
+	}
+
+	public String getNombreTitular() {
+		return nombreTitular;
+	}
+
+	public void setNombreTitular(String nombreTitular) {
+		this.nombreTitular = nombreTitular;
 	}
 
 }

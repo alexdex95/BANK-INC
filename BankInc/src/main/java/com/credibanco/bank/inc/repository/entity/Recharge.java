@@ -1,6 +1,6 @@
 package com.credibanco.bank.inc.repository.entity;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +16,7 @@ public class Recharge {
 	private int idRecarga;
 
 	@Column(name = "FECHARECARGA", nullable = false)
-	private LocalDate fechaRecarga;
+	private LocalDateTime fechaRecarga;
 
 	@Column(name = "VALOR", nullable = false)
 	private long valor;
@@ -32,11 +32,11 @@ public class Recharge {
 		this.idRecarga = idRecarga;
 	}
 
-	public LocalDate getFechaRecarga() {
+	public LocalDateTime getFechaRecarga() {
 		return fechaRecarga;
 	}
 
-	public void setFechaRecarga(LocalDate fechaRecarga) {
+	public void setFechaRecarga(LocalDateTime fechaRecarga) {
 		this.fechaRecarga = fechaRecarga;
 	}
 
@@ -60,7 +60,7 @@ public class Recharge {
 		super();
 	}
 
-	public Recharge(LocalDate fechaRecarga, long valor, long tarjetaID) {
+	public Recharge(LocalDateTime fechaRecarga, long valor, long tarjetaID) {
 		super();
 		this.fechaRecarga = fechaRecarga;
 		this.valor = valor;
